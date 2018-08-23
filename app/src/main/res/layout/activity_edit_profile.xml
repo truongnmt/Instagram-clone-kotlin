@@ -72,7 +72,7 @@
 
         <EditText
             android:id="@+id/name_input"
-            style="@style/edit_profile_label"
+            style="@style/edit_profile_input"
             app:layout_constraintTop_toBottomOf="@+id/name_label"
             android:inputType="text" />
 
@@ -85,7 +85,7 @@
 
         <EditText
             android:id="@+id/username_input"
-            style="@style/edit_profile_label"
+            style="@style/edit_profile_input"
             app:layout_constraintTop_toBottomOf="@+id/username_label"
             android:inputType="text" />
 
@@ -98,7 +98,7 @@
 
         <EditText
             android:id="@+id/website_input"
-            style="@style/edit_profile_label"
+            style="@style/edit_profile_input"
             app:layout_constraintTop_toBottomOf="@+id/website_label"
             android:inputType="text" />
 
@@ -111,7 +111,7 @@
 
         <EditText
             android:id="@+id/bio_input"
-            style="@style/edit_profile_label"
+            style="@style/edit_profile_input"
             app:layout_constraintTop_toBottomOf="@+id/bio_label"
             android:inputType="text" />
 
@@ -131,7 +131,7 @@
 
         <EditText
             android:id="@+id/email_input"
-            style="@style/edit_profile_label"
+            style="@style/edit_profile_input"
             app:layout_constraintTop_toBottomOf="@+id/email_label"
             android:inputType="textEmailAddress" />
 
@@ -144,7 +144,7 @@
 
         <EditText
             android:id="@+id/phone_input"
-            style="@style/edit_profile_label"
+            style="@style/edit_profile_input"
             app:layout_constraintTop_toBottomOf="@+id/phone_label"
             android:inputType="phone" />
 
