@@ -29,44 +29,52 @@ class LoginActivity : AppCompatActivity(), KeyboardVisibilityEventListener, Text
         password_input.addTextChangedListener(this)
 
         login_btn.setOnClickListener(this)
+        create_account_text.setOnClickListener(this)
 
         mAuth = FirebaseAuth.getInstance()
     }
 
-    override fun onClick(p0: View?) {
-        val email = email_input.text.toString()
-        val password = password_input.text.toString()
-        if (validate(email, password)) {
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    finish()
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.login_btn -> {
+                val email = email_input.text.toString()
+                val password = password_input.text.toString()
+                if (validate(email, password)) {
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            startActivity(Intent(this, HomeActivity::class.java))
+                            finish()
+                        }
+                    }
+                } else {
+                    showToast("Please enter email and password")
                 }
             }
-        } else {
-            showToast("Please enter email and password")
+            R.id.create_account_text -> {
+                startActivity(Intent(this, RegisterActivity::class.java))
+            }
         }
-    }
-
-    override fun onVisibilityChanged(isOpen: Boolean) {
-        if (isOpen) {
-            scroll_view.scrollTo(0, scroll_view.bottom)
-            create_account_text.visibility = View.GONE
-        } else {
-            scroll_view.scrollTo(0, scroll_view.top)
-            create_account_text.visibility = View.VISIBLE
         }
+
+        override fun onVisibilityChanged(isOpen: Boolean) {
+            if (isOpen) {
+                scroll_view.scrollTo(0, scroll_view.bottom)
+                create_account_text.visibility = View.GONE
+            } else {
+                scroll_view.scrollTo(0, scroll_view.top)
+                create_account_text.visibility = View.VISIBLE
+            }
+        }
+
+        override fun afterTextChanged(p0: Editable?) {
+            login_btn.isEnabled = validate(email_input.text.toString(), password_input.text.toString())
+
+        }
+
+        private fun validate(email: String, password: String) =
+                email.isNotEmpty() && password.isNotEmpty()
+
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
     }
-
-    override fun afterTextChanged(p0: Editable?) {
-        login_btn.isEnabled = validate(email_input.text.toString(), password_input.text.toString())
-
-    }
-
-    private fun validate(email: String, password: String) =
-            email.isNotEmpty() && password.isNotEmpty()
-
-    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-}

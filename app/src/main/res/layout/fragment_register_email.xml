@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/email_input"
         style="@style/login_input"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -23,6 +24,7 @@
     <Button
         android:id="@+id/next_btn"
         style="@style/login_btn"
-        android:text="Next" />
+        android:text="Next"
+        app:layout_constraintTop_toBottomOf="@id/email_input" />
 
 </android.support.constraint.ConstraintLayout>
