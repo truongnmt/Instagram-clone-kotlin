@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".EditProfileActivity"
+    tools:context=".activities.EditProfileActivity"
     android:scrollY="1000px">
 
     <android.support.constraint.ConstraintLayout

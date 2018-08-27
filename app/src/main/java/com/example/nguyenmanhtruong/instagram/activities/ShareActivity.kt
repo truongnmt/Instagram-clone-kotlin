@@ -1,7 +1,8 @@
-package com.example.nguyenmanhtruong.instagram
+package com.example.nguyenmanhtruong.instagram.activities
 
 import android.os.Bundle
 import android.util.Log
+import com.example.nguyenmanhtruong.instagram.R
 
 class ShareActivity : BaseActivity(2) {
     private val TAG = "ShareActivity"

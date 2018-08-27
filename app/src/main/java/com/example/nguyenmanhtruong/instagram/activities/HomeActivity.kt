@@ -1,8 +1,9 @@
-package com.example.nguyenmanhtruong.instagram
+package com.example.nguyenmanhtruong.instagram.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import com.example.nguyenmanhtruong.instagram.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
 

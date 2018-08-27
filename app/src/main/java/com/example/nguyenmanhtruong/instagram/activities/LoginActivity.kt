@@ -1,4 +1,4 @@
-package com.example.nguyenmanhtruong.instagram
+package com.example.nguyenmanhtruong.instagram.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.example.nguyenmanhtruong.instagram.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
@@ -43,7 +44,7 @@ class LoginActivity : AppCompatActivity(), KeyboardVisibilityEventListener, Text
                 }
             }
         } else {
-            Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT)
+            showToast("Please enter email and password")
         }
     }
 
