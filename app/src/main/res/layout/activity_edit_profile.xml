@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.EditProfileActivity"
-    android:scrollY="1000px">
+    android:scrollY="1000px"
+    tools:context=".activities.EditProfileActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -55,13 +55,25 @@
             android:id="@+id/profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:civ_border_width="1dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/android_picture"
             app:civ_border_color="@color/gray"
-            android:layout_marginTop="15dp"/>
+            app:civ_border_width="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <TextView
+            android:id="@+id/change_photo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
         <TextView
             android:id="@+id/name_label"
@@ -73,8 +85,8 @@
         <EditText
             android:id="@+id/name_input"
             style="@style/edit_profile_input"
-            app:layout_constraintTop_toBottomOf="@+id/name_label"
-            android:inputType="text" />
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@+id/name_label" />
 
         <TextView
             android:id="@+id/username_label"
@@ -86,34 +98,34 @@
         <EditText
             android:id="@+id/username_input"
             style="@style/edit_profile_input"
-            app:layout_constraintTop_toBottomOf="@+id/username_label"
-            android:inputType="text" />
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@+id/username_label" />
 
         <TextView
             android:id="@+id/website_label"
             style="@style/edit_profile_label"
-            android:text="Website"
             android:labelFor="@id/website_input"
+            android:text="Website"
             app:layout_constraintTop_toBottomOf="@+id/username_input" />
 
         <EditText
             android:id="@+id/website_input"
             style="@style/edit_profile_input"
-            app:layout_constraintTop_toBottomOf="@+id/website_label"
-            android:inputType="text" />
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@+id/website_label" />
 
         <TextView
             android:id="@+id/bio_label"
             style="@style/edit_profile_label"
-            android:text="Bio"
             android:labelFor="@id/bio_input"
+            android:text="Bio"
             app:layout_constraintTop_toBottomOf="@+id/website_input" />
 
         <EditText
             android:id="@+id/bio_input"
             style="@style/edit_profile_input"
-            app:layout_constraintTop_toBottomOf="@+id/bio_label"
-            android:inputType="text" />
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@+id/bio_label" />
 
         <TextView
             android:id="@+id/private_info_text"
@@ -125,28 +137,28 @@
         <TextView
             android:id="@+id/email_label"
             style="@style/edit_profile_label"
-            android:text="Email"
             android:labelFor="@id/email_input"
+            android:text="Email"
             app:layout_constraintTop_toBottomOf="@+id/private_info_text" />
 
         <EditText
             android:id="@+id/email_input"
             style="@style/edit_profile_input"
-            app:layout_constraintTop_toBottomOf="@+id/email_label"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@+id/email_label" />
 
         <TextView
             android:id="@+id/phone_label"
             style="@style/edit_profile_label"
-            android:text="Phone"
             android:labelFor="@id/phone_input"
+            android:text="Phone"
             app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
         <EditText
             android:id="@+id/phone_input"
             style="@style/edit_profile_input"
-            app:layout_constraintTop_toBottomOf="@+id/phone_label"
-            android:inputType="phone" />
+            android:inputType="phone"
+            app:layout_constraintTop_toBottomOf="@+id/phone_label" />
 
     </android.support.constraint.ConstraintLayout>
 
