@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.ProfileActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/whiteish"
-        android:elevation="4dp">
+        style="@style/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/username_text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:text="truong.nguyen"
                 android:textColor="@color/black"
-                android:textSize="19sp"/>
-            
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 style="@style/toolbar_image"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_more"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/ic_more"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
-        
+
     </android.support.v7.widget.Toolbar>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -45,31 +43,31 @@
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:src="@drawable/person"
         app:civ_border_color="@color/gray"
         app:civ_border_width="1dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/edit_profile_btn"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:src="@drawable/android_picture"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
         android:id="@+id/posts_count_text"
         style="@style/profile_text_count"
         android:text="50"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/edit_profile_btn"
-        app:layout_constraintStart_toStartOf="@id/posts_text"
         app:layout_constraintEnd_toEndOf="@id/posts_text"
+        app:layout_constraintStart_toStartOf="@id/posts_text"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/posts_text"
         style="@style/profile_text"
         android:text="posts"
-        app:layout_constraintStart_toStartOf="@id/edit_profile_btn"
         app:layout_constraintEnd_toStartOf="@id/followers_text"
+        app:layout_constraintStart_toStartOf="@id/edit_profile_btn"
         app:layout_constraintTop_toBottomOf="@id/posts_count_text"
         tools:layout_editor_absoluteX="180dp"
         tools:layout_editor_absoluteY="128dp" />
@@ -86,8 +84,8 @@
         android:id="@+id/followers_text"
         style="@style/profile_text"
         android:text="followers"
-        app:layout_constraintStart_toEndOf="@id/posts_text"
         app:layout_constraintEnd_toStartOf="@id/following_text"
+        app:layout_constraintStart_toEndOf="@id/posts_text"
         app:layout_constraintTop_toBottomOf="@id/posts_count_text" />
 
     <TextView
@@ -95,34 +93,34 @@
         style="@style/profile_text_count"
         android:text="200"
         app:layout_constraintBaseline_toBaselineOf="@id/posts_count_text"
-        app:layout_constraintStart_toStartOf="@id/following_text"
-        app:layout_constraintEnd_toEndOf="@id/following_text" />
+        app:layout_constraintEnd_toEndOf="@id/following_text"
+        app:layout_constraintStart_toStartOf="@id/following_text" />
 
     <TextView
         android:id="@+id/following_text"
         style="@style/profile_text"
         android:text="following"
-        app:layout_constraintStart_toEndOf="@id/followers_text"
         app:layout_constraintEnd_toEndOf="@id/edit_profile_btn"
+        app:layout_constraintStart_toEndOf="@id/followers_text"
         app:layout_constraintTop_toBottomOf="@id/following_count_text" />
 
     <Button
         android:id="@+id/edit_profile_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minHeight="0dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/button_bg"
-        android:text="Edit Profile"
-        android:textSize="14sp"
-        android:textAllCaps="false"
         android:layout_marginEnd="15dp"
+        android:background="@drawable/button_bg"
+        android:minHeight="0dp"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="Edit Profile"
+        android:textAllCaps="false"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/profile_image"
-        app:layout_constraintStart_toEndOf="@id/profile_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="5"/>
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintStart_toEndOf="@id/profile_image" />
 
     <include layout="@layout/bottom_navigation_view" />
 
