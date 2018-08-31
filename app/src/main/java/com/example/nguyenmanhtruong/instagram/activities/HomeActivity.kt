@@ -33,7 +33,7 @@ class HomeActivity : BaseActivity(0) {
                 .addValueEventListener(ValueEventListenerAdapter{
                     val posts = it.children.map {it.getValue(FeedPost::class.java)}
                     Log.d(TAG, "feedPosts: ${posts.joinToString("\n", "\n")}")
-                    Log.d(TAG, "feedPosts: ${posts.first().timestampDate()}")
+//                    Log.d(TAG, "feedPosts: ${posts.first()!!.timestampDate()}")
                 })
     }
 
