@@ -66,6 +66,4 @@
         android:hint="Enter a caption here ..."
         android:background="@android:color/transparent"/>
 
-    <include layout="@layout/bottom_navigation_view" />
-
 </android.support.constraint.ConstraintLayout>

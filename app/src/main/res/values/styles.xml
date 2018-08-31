@@ -30,7 +30,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/toolbar_height</item>
         <item name="android:background">@color/whiteish</item>
-        <item name="android:elevation">40dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="toolbar_image">

@@ -24,7 +24,7 @@ abstract class BaseActivity(val navNumber: Int) : AppCompatActivity() {
 
         bottom_navigation_view.setOnNavigationItemSelectedListener {
             val nextActivity =
-                    when(it.itemId) {
+                    when (it.itemId) {
                         R.id.nav_item_home -> HomeActivity::class.java
                         R.id.nav_item_search -> SearchActivity::class.java
                         R.id.nav_item_share -> ShareActivity::class.java
@@ -39,12 +39,18 @@ abstract class BaseActivity(val navNumber: Int) : AppCompatActivity() {
                 val intent = Intent(this, nextActivity)
                 intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
                 startActivity(intent)
-                overridePendingTransition(0,0)
+                overridePendingTransition(0, 0)
                 true
             } else {
                 false
             }
         }
-        bottom_navigation_view.menu.getItem(navNumber).isChecked = true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (bottom_navigation_view != null) {
+            bottom_navigation_view.menu.getItem(navNumber).isChecked = true
+        }
     }
 }
