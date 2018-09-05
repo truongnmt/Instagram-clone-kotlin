@@ -26,6 +26,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/add_friends_image"
+                style="@style/icon"
+                android:src="@drawable/ic_add_friends"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/settings_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/settings_image"
                 style="@style/icon"
                 android:src="@drawable/ic_more"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -125,11 +134,11 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/images_recycler"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_profile_btn"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+        android:layout_height="0dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/top_border_gray"
-        android:layout_height="0dp">
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+        app:layout_constraintTop_toBottomOf="@id/edit_profile_btn">
 
     </android.support.v7.widget.RecyclerView>
 
