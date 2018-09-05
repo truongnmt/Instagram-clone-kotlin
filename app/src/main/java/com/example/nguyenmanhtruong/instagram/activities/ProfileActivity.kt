@@ -43,7 +43,7 @@ class ProfileActivity : BaseActivity(4) {
 
         mFirebase = FirebaseHelper(this)
         mFirebase.currentUserReference().addValueEventListener(ValueEventListenerAdapter {
-            mUser = it.getValue(User::class.java)!!
+            mUser = it.asUser()!!
             profile_image.loadUserPhoto(mUser.photo)
             username_text.text = mUser.username
         })
@@ -75,10 +75,6 @@ class ImagesAdapter(private val images: List<String>) :
     }
 
     class ViewHolder(val image: ImageView) : RecyclerView.ViewHolder(image)
-
-    private fun ImageView.loadImage(image: String) {
-        GlideApp.with(this).load(image).centerCrop().into(this)
-    }
 }
 
 class SquareImageView(context: Context, attrs: AttributeSet) : ImageView(context, attrs) {

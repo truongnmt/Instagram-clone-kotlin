@@ -53,7 +53,7 @@ class HomeActivity : BaseActivity(0) {
             startActivity(Intent(this, LoginActivity::class.java) )
             finish()
         } else {
-            mFirebase.database.child("feed-posts").child(currentUser!!.uid)
+            mFirebase.database.child("feed-posts").child(currentUser.uid)
                     .addValueEventListener(ValueEventListenerAdapter {
                         val posts = it.children.map { it.getValue(FeedPost::class.java)!! }
                         Log.d(TAG, "feedPosts: ${posts.joinToString("\n", "\n")}")
@@ -108,9 +108,4 @@ class FeedAdapter(private val posts: List<FeedPost>) : RecyclerView.Adapter<Feed
     }
 
     override fun getItemCount() = posts.size
-
-    private fun ImageView.loadImage(image: String) {
-        GlideApp.with(this).load(image).centerCrop().into(this)
-    }
-
 }

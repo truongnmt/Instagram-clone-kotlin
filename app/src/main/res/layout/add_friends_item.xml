@@ -6,7 +6,7 @@
     android:paddingEnd="10dp"
     android:paddingStart="10dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/photo_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -38,16 +38,19 @@
 
     <Button
         android:id="@+id/follow_btn"
-        style="@style/small_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:paddingBottom="3dp"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp"
-        android:paddingTop="3dp"
         android:text="Follow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/username_text" />
+
+    <Button
+        android:id="@+id/unfollow_btn"
+        style="@style/secondary_small_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unfollow"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/username_text" />
 </android.support.constraint.ConstraintLayout>
