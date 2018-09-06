@@ -8,11 +8,13 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.nguyenmanhtruong.instagram.R
+import com.example.nguyenmanhtruong.instagram.models.FeedPost
 import com.example.nguyenmanhtruong.instagram.models.User
 import com.example.nguyenmanhtruong.instagram.utils.GlideApp
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.TaskCompletionSource
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
 
 fun Context.showToast(text: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, text, duration).show()
@@ -59,3 +61,9 @@ fun <T> task(block: (TaskCompletionSource<T>) -> Unit) : Task<T> {
 
 fun DataSnapshot.asUser(): User? =
         getValue(User::class.java)?.copy(uid = key)
+
+fun DataSnapshot.asFeedPost(): FeedPost? =
+        getValue(FeedPost::class.java)?.copy(id = key)
+
+fun DatabaseReference.setValueTrueOrRemove(value: Boolean) =
+        if (value) setValue(true) else removeValue()

@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.example.nguyenmanhtruong.instagram.R
+import com.example.nguyenmanhtruong.instagram.models.FeedPost
 import com.example.nguyenmanhtruong.instagram.models.User
 import com.example.nguyenmanhtruong.instagram.utils.CameraHelper
 import com.example.nguyenmanhtruong.instagram.utils.FirebaseHelper
 import com.example.nguyenmanhtruong.instagram.utils.GlideApp
 import com.example.nguyenmanhtruong.instagram.utils.ValueEventListenerAdapter
-import com.google.firebase.database.ServerValue
 import kotlinx.android.synthetic.main.activity_share.*
-import java.util.*
 
 class ShareActivity : BaseActivity(2) {
     private val TAG = "ShareActivity"
@@ -50,8 +49,8 @@ class ShareActivity : BaseActivity(2) {
     private fun share() {
         val imageUri = mCamera.imageUri
         if (imageUri != null) {
-            val uid = mFirebase.auth.currentUser!!.uid
-            mFirebase.storage.child("users").child(mFirebase.auth.currentUser!!.uid).child("images")
+            val uid = mFirebase.currentUid()
+            mFirebase.storage.child("users").child(mFirebase.currentUid()!!).child("images")
                     .child(imageUri.lastPathSegment).putFile(imageUri).addOnCompleteListener {
                         if (it.isSuccessful) {
                             val imageDownloadUrl = it.result.downloadUrl!!.toString()
@@ -60,7 +59,7 @@ class ShareActivity : BaseActivity(2) {
                                     .addOnCompleteListener {
                                         if (it.isSuccessful) {
                                             mFirebase.database.child("feed-posts").child(uid)
-                                                    .push().setValue(mkFeedPost(uid, imageDownloadUrl))
+                                                    .push().setValue(mkFeedPost(uid!!, imageDownloadUrl))
                                                     .addOnCompleteListener {
                                                         if (it.isSuccessful) {
                                                             startActivity(Intent(this,
@@ -90,14 +89,3 @@ class ShareActivity : BaseActivity(2) {
         )
     }
 }
-
-data class FeedPost(val uid: String = "", val username: String = "",
-                    val image: String = "", val likesCount: Int = 0, val commentsCount: Int = 0,
-                    val caption: String = "", val comments: List<Comment> = emptyList(),
-                    val timestamp: Any = ServerValue.TIMESTAMP, val photo: String? = null) {
-    // save -> Firebase puts Long value
-    // get <- Long
-    fun timestampDate(): Date = Date(timestamp as Long)
-}
-
-data class Comment(val uid: String, val username: String, val text: String)
